@@ -12,6 +12,6 @@ public class StudentKyberbezpecnosti extends Student {
 	}
 
 	public int textToHash(String text) {
-		return text.hashCode(); // JE TO DOSTATEČNÁ HASHOVACÍ FUNKCE NEBO CHTĚJÍ SHA-256
+		return text.hashCode();
 	}
 }
