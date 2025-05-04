@@ -97,8 +97,6 @@ public class SpravceStudentu {
 	}
 	
 	public float průměrVOboru(int obor) {
-		// obor == 1 - Telekomunikace
-		// obor == 2 - Kyberbezpečnost // přepsat do správného stylu v javě
 		float suma = 0;
 		int pocet = 0;
 		if (obor == 1) {
@@ -152,29 +150,29 @@ public class SpravceStudentu {
 		}
 		List<Integer> znamky = info.getZnamky();
 		
-    	fw.write("ID, obor, jmeno, prijmeni, rok narozeni, studijni prumer, znamky\n");
+    		fw.write("ID, obor, jmeno, prijmeni, rok narozeni, studijni prumer, znamky\n");
 		fw.write(info.getID() + ", " + obor + ", "  + info.getJmeno() +", " + info.getPrijmeni() + ", " + info.getRokNarozeni() + ", " + info.getStudijniPrumer() + ", " + znamky + "\n");
-       	fw.close();
-       	System.out.println("Výpis studenta ukončen");
+       		fw.close();
+       		System.out.println("Výpis studenta ukončen");
 	}
 	
 	public void nacteniZeSouboru(String filename) throws IOException {
 		FileReader fr = new FileReader(filename);
-    	BufferedReader in = new BufferedReader(fr);
-    	in.readLine(); // prvni radek jsou nazvy sloupcu
-    	String radek;
-    	int id;
-    	Student student;
-    	while ((radek = in.readLine()) != null) {
-    		String info[] = radek.split(", ", 7);// rozdelen string na List stringů
-    		id = pridatStudenta(info[2], info[3], Integer.valueOf(info[4]), Integer.valueOf(info[1]));
-    		student = studenti.get(id);
-    		String znamkyText = info[6].replace("[", "").replace("]", "");
-    		for (String s : znamkyText.split(", ")) {
-    			student.pridatZnamku(Integer.valueOf(s));
-    		}    		
-    	}
-    	fr.close();
+    		BufferedReader in = new BufferedReader(fr);
+    		in.readLine();
+    		String radek;
+    		int id;
+    		Student student;
+    		while ((radek = in.readLine()) != null) {
+    			String info[] = radek.split(", ", 7);
+    			id = pridatStudenta(info[2], info[3], Integer.valueOf(info[4]), Integer.valueOf(info[1]));
+    			student = studenti.get(id);
+    			String znamkyText = info[6].replace("[", "").replace("]", "");
+    			for (String s : znamkyText.split(", ")) {
+    				student.pridatZnamku(Integer.valueOf(s));
+    			}    		
+    		}
+    		fr.close();
 	}
 	
 	public int pridatStudenta(String jmeno, String prijmeni, int rokNarozeni, int obor) {
