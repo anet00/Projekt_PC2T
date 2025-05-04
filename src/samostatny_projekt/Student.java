@@ -60,7 +60,7 @@ public abstract class Student {
 		return znamky;
 	}
 	public void vytiskInfo() {
-		System.out.println("ID: " + id + ", jméno: " + jmeno + " " + prijmeni + ", rok narození: " + rokNarozeni + ", Studijní průměr: " + studijniPrumer + "znamky: " + znamky);
+		System.out.println("ID: " + id + ", jméno: " + jmeno + " " + prijmeni + ", rok narození: " + rokNarozeni + ", Studijní průměr: " + studijniPrumer + ", znamky: " + znamky);
 	}
 
 	
