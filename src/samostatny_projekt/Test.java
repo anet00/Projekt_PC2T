@@ -25,7 +25,6 @@ public class Test {
 	
 	public static void main(String[] args) {
 		SpravceStudentu spravce = new SpravceStudentu();
-		//spravce.nacistDatabazi();
 		int id;
 		int obor;
 		String jmeno;
