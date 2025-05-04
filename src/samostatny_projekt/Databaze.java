@@ -35,7 +35,6 @@ public class Databaze {
 		try {
 			conn.prepareStatement(delete).executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -55,18 +54,17 @@ public class Databaze {
 			
 			String insertQuery = "INSERT INTO student (id, obor, jmeno, prijmeni, rokNarozeni, znamky) VALUES (?, ?, ?, ?, ?, ?)";
 			try (PreparedStatement prStmt = conn.prepareStatement(insertQuery)) {	
-				prStmt.setInt(1,  id);
-				prStmt.setInt(2, obor);
-				prStmt.setString(3, jmeno);
+			    prStmt.setInt(1,  id);
+			    prStmt.setInt(2, obor);
+			    prStmt.setString(3, jmeno);
 			    prStmt.setString(4, prijmeni);
 			    prStmt.setInt(5, rokNarozeni);
-				prStmt.setString(6, znamkyStr);
+			    prStmt.setString(6, znamkyStr);
 			
 			    prStmt.executeUpdate();
 			    System.out.println("Nový uživatel byl vložen do databáze!");
 			} catch (SQLException e) {
 			    System.out.println("Uživatel už byl vložen nebo jste zadali špatně SQL příkaz INSERT");
-			      // e.printStackTrace();
 		    }
 
 		}
